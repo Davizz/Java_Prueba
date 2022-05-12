@@ -40,6 +40,9 @@ public class Funciones {
 			        n2 = Integer.parseInt(entTec);
 			        
 			        
+			        
+			        
+			        
 			        System.out.println((((n1%n2)==0)?
 			        		"El número "+n1+" es Múltiplo del número "+n2+"\n\n":
 			        		"El número "+n1+" NO es Múltiplo del número "+n2+"\n\n"));
