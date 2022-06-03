@@ -1,6 +1,15 @@
 package F19;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
+
+import validar.Validaciones;
 
 public class Funciones {
+	
+	
 	
 	
 	/* Ejercicio F19-1 Clase Funciones
@@ -11,6 +20,11 @@ public class Funciones {
 		Este fichero te servirá de base para alimentarlo con nuevos métodos en las próximas semanas. 
 	 */
 	public void F19_1() {
+		String dni;
+		do {	
+			dni = JOptionPane.showInputDialog(null, "DNI: ", "Datos Usuario", JOptionPane.PLAIN_MESSAGE);	
+			System.out.println(Validaciones.comprobarDni(dni));
+		}while(!Validaciones.comprobarDni(dni));
 		
 	}
 	/* Ejercicio F19-2 – Clase Tiempo
@@ -42,7 +56,29 @@ public class Funciones {
 		     java.text.DecimalFormat
 	 */
 	public void F19_2() {
+		Calcular miCalculo = new Calcular();
+		Date fecha = new Date();
 		
+		Tiempo miTiempo = new Tiempo();
+		do {
+			miTiempo.setHora(Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la Hora", 
+																				"Datos Usuario", JOptionPane.PLAIN_MESSAGE)));
+		}while(miTiempo.getHora()<0);
+		
+		miCalculo.agregarHoras(miTiempo.getHora());
+		
+		
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(fecha); // Configuramos la fecha que se recibe
+
+		calendar.add(Calendar.HOUR, miTiempo.getHora());  // numero de horas a añadir, o restar en caso de horas<0
+		 // Devuelve el objeto Date con las nuevas horas añadidas
+		
+		JOptionPane.showMessageDialog(null,"Añadimos " + miTiempo.getHora() + " horas a la fecha actual : " + 
+										  new SimpleDateFormat("dd-MM-yyyy HH:mm").format(fecha) + 
+										  "\nLa nueva fecha será : " + new SimpleDateFormat("dd-MM-yyyy HH:mm").format(calendar.getTime()), 
+										  "Resultado", JOptionPane.PLAIN_MESSAGE);
 	}
 	
 }

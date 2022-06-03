@@ -1,4 +1,4 @@
-package F20;
+package F23;
 
 
 import javax.swing.JOptionPane;
@@ -13,7 +13,7 @@ public class Main {
 		Funciones misMetodos = new Funciones();
 		
 		Menu menu = new Menu();
-		String[] opcionesMenu = {"1. Recursividad", "2. Cajero Automático"};
+		String[] opcionesMenu = {"1. Centro de Ocio"};
 		
 		while(select != 0){
 		
@@ -24,11 +24,11 @@ public class Main {
 				switch(select){
 				case 1: 
 					//JOptionPane.showMessageDialog(null,"Opción 1, próximamente!!");		
-					misMetodos.F20_1();
+					misMetodos.F23_1();
 					break;
 				case 2: 
 					//JOptionPane.showMessageDialog(null,"Opción 2, próximamente!!");
-					misMetodos.F20_2();
+					//misMetodos.F23_2();
 					break;
 				case 0: 
 					JOptionPane.showMessageDialog(null,"Hasta Luego, vuelve pronto!","Saludo", JOptionPane.PLAIN_MESSAGE);

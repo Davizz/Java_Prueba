@@ -24,7 +24,7 @@ public class Funciones {
 	static Factorial factorial= new Factorial();
 	
 	public void E16_1() {
-		salir = -1;
+//		salir = -1;
 		int Seleccion = 0;
 		Object[] options = new Object[] {"SALIR",
 				"Factorial SIN RECURSIVIDAD",

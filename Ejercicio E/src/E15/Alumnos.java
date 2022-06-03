@@ -22,7 +22,7 @@ public class Alumnos {
 	public double nota_mate;
 	public double nota_natu;
 	public double nota_soci;
-		
+
 	public Alumnos(String nombre_apellido, String nivel, double nota_lengua, double nota_mate, double nota_natu,
 			double nota_soci) {
 		super();
@@ -36,12 +36,6 @@ public class Alumnos {
 
 	public Alumnos() {
 
-}
-
-	@Override
-	public String toString() {
-		return "Alumnos [nombre_apellido=" + nombre_apellido + ", nivel=" + nivel + ", nota_lengua=" + nota_lengua
-				+ ", nota_mate=" + nota_mate + ", nota_natu=" + nota_natu + ", nota_soci=" + nota_soci + "]";
 	}
 
 	public String getNombre_apellido() {
@@ -87,13 +81,21 @@ public class Alumnos {
 	public double getNota_soci() {
 		return nota_soci;
 	}
-	
+
 	public double getMedia() {
-		
-		return (nota_mate + nota_lengua + nota_soci + nota_natu)/4;
+
+		return (nota_mate + nota_lengua + nota_soci + nota_natu) / 4;
 	}
-	
 
 	public void setNota_soci(double nota_soci) {
 		this.nota_soci = nota_soci;
-	}}
+	}
+
+	@Override
+	public String toString() {
+		return "Alumnos [nombre_apellido=" + nombre_apellido + ", nivel=" + nivel + ", nota_lengua=" + nota_lengua
+				+ ", nota_mate=" + nota_mate + ", nota_natu=" + nota_natu + ", nota_soci=" + nota_soci + ", getMedia()="
+				+ getMedia() + "]";
+	}
+
+}

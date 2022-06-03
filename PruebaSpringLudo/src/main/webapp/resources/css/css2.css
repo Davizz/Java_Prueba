@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #CFC;
+}
+
+.tit {
+	color: #F00;
+	font-size: 24px;
+	font-family: Georgia, Cambria;
+}
+
+.d1, .d2, .d3 {
+	color: #A00;
+	font-size: 16px;
+	font-family: Verdana, Calibri;
+}
+
+.p1, .p2 p, .p3 p, .p3 ul  {
+	color: #00F;
+	font-size: 16px;
+	font-family: Georgia, Cambria;
+}
+.I {
+	font-size: 20px;
+}
+.M {
+	background-color: black;
+	color: white;
+	font-style: oblique;
+}

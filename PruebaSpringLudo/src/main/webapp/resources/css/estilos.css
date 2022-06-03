@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+p{
+	font-size: 18px;
+	color: red;
+}
+#verde {
+	font-size: 35px;
+	color: green;
+}
+.parrafos {
+	font-size: 45px;
+	color: brown;
+}

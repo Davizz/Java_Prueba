@@ -16,6 +16,8 @@ public class Main {
 		System.out.println("**** EJERCICIO B2 ******");
 		System.out.println("************************\n");
 		
+		
+		
 		DecimalFormat formateaDecimales = new DecimalFormat("###,###.####");
 		
         System.out.println ("Por favor introduzca el valor numérico entero : ");

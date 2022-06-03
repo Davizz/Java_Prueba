@@ -15,10 +15,14 @@ public class Main {
 		
 		JOptionPane.showMessageDialog(null, "************************\n**   EJERCICIO B4_2   **\n************************\n");
 
+		
+		
+		
 		String ta = JOptionPane.showInputDialog("Número a: ");
 		int a = Integer.parseInt(ta);
 		String tb = JOptionPane.showInputDialog("Número b: ");
 		int b = Integer.parseInt(tb);
+		
 		String tc = JOptionPane.showInputDialog("Número c: ");
 		int c = Integer.parseInt(tc);
 		
