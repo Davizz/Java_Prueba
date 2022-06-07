@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!--  Paquete a escanear en busca de componentes -->
+	<context:component-scan base-package="com.alumno.proyectogrupo" />
+
+	<mvc:annotation-driven/>
+
+	
+	<bean id="miCoche" class="com.alumno.proyectogrupo.Coche">
+	<property name="color" value="Negro"></property>
+	<property name="marca" value="Pontiac"></property>
+	<property name="modelo" value="Trans-Am"></property>
+	<property name="descripcion" value="Trans-Am"></property>  
+    </bean>
+    
+    <bean id="pascal" class="poo.poo_herencia.Trabajador">
+	<property name="nombre" value="Pascal"></property>
+	<property name="sueldo" value="2000"></property>
+	<property name="puesto" value="Gerente"></property>
+	</bean>
+	<bean id="eric" class="poo.poo_herencia.Estudiante">
+	<property name="nombre" value="Eric"></property>
+	<property name="beca" value="650"></property>
+	<property name="curso" value="Grado superior en informática"></property>
+	</bean>
+	
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+<!-- 	POO_INTERFACES -->
+	<bean id="tienda_madrid" class="poo.poo_interfaces.TiendaMadrid"></bean>
+	<bean id="tienda_bilbao" class="poo.poo_interfaces.TiendaBilbao"></bean>
+	<bean id="michel" class="poo.poo_interfaces.Vendedor">
+	<property name="nombre" value="Michel"></property>
+	<property name="sueldo" value="2000"></property>
+	<property name="tienda" ref="tienda_madrid"></property>
+	</bean>
+	<bean id="annie" class="poo.poo_interfaces.Vendedor">
+	<constructor-arg ref="tienda_bilbao"></constructor-arg>
+	</bean>
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+	<!-- ********************************************************* -->
+	<!-- FICHERO_EXTERNO -->
+	<!-- A menudo, se trabaja con un fichero externo para listar los datos. 
+		Necesitamos saber como va esto -->
+	<!-- <context:property-placeholder location="classpath:datos.propiedades"/> -->
+	<!-- <bean id="pascal" class="fichero_externo.Trabajador"> -->
+	<!-- <property name="nombre" value="${trabajadorPascal}"></property> -->
+	<!-- <property name="sueldo" value="${sueldoPascal}"></property> -->
+	<!-- <property name="puesto" value="${puestoPascal}"></property> -->
+	<!-- </bean> -->
+	<!-- <bean id="eric" class="fichero_externo.Estudiante"> -->
+	<!-- <property name="nombre" value="${estudianteEric}"></property> -->
+	<!-- <property name="beca" value="${becaEric}"></property> -->
+	<!-- <property name="curso" value="${cursoEric}"></property> -->
+	<!-- </bean> -->
+
+	<!-- CICLO_DE_VIDA -->
+<!-- 	<context:property-placeholder -->
+<!-- 		location="classpath:datos.propiedades" /> -->
+<!-- 	<bean id="pascal" class="fichero_externo.Trabajador" -->
+<!-- 		init-method="init" destroy-method="destroy"> -->
+<!-- 		<property name="nombre" value="${trabajadorPascal}"></property> -->
+<!-- 		<property name="sueldo" value="${sueldoPascal}"></property> -->
+<!-- 		<property name="puesto" value="${puestoPascal}"></property> -->
+<!-- 	</bean> -->
+     
+
+</beans>
+
+
+
+
+
