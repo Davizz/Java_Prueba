@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+    	http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context
+    	http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- Paquete a escanear en busca de componentes -->
+	<!-- <context:component-scan -->
+	<!-- base-package="com.nombrealumno.poo" /> -->
+
+	<!-- <mvc:annotation-driven /> -->
+
+
+<!-- Es muy probable que en la empresa en la que vais a trabajar, los proyectos estén organizados  -->
+<!-- a la vieja usencia: que sigan modificando el XML o que usen un archivo externo para referirse  -->
+<!-- a variables y otros datos.  -->
+<!-- Tenemos entonces que prepararnos a ello para que estéis perdidos si os pasa.  -->
+
+	<context:component-scan
+		base-package="com.nombrealumno.poo">
+	</context:component-scan>
+
+
+<!-- En que consiste Java Spring? -->
+<!-- Salido en 2003, Spring es un Framework libre creado para facilitar el  -->
+<!-- desarrollo y los tests de aplicaciones java.  -->
+<!-- Se apoya principalmente sobre la integración de 3 conceptos:  -->
+<!-- 1 - La inversión de controle, que se realiza de 2 formas distintas:  -->
+<!-- - la búsqueda de dependencias dónde básicamente podriamos decir que  -->
+<!-- el objeto pregunta al contenedor con el fin de encontrar sus  -->
+<!-- dependencias con otros objetos  -->
+<!-- - la inyección de dependencias realizable de 3 formas distinctas:  -->
+<!-- vía constructor, vía setters o vía interfaz.  -->
+<!-- 2 - La programación orientada a aspectos -->
+<!-- (Ejemplo de las 3 clases que tienen que recibir una actualización transversal)  -->
+<!-- 3 - La capa de abstracción que permite integrar otros frameworks con mayor  -->
+<!-- facilidad  -->
+
+<!-- Coche miCoche = new Coche("Negro", "Pontiac", "Trans-Am");  -->
+	<bean id="miCoche" class="com.nombrealumno.poo.Coche">
+		<property name="color" value="Negro"></property>
+		<property name="marca" value="Pontiac"></property>
+		<property name="modelo" value="Trans-Am"></property>
+		
+	</bean>
+	
+<!-- 	Qué es un bean?  -->
+<!-- 	Es un objeto que está instanciado, asemblado y gestionado por  -->
+<!-- 	Spring IoC Container -->
+<!-- 	IoC de Inversion of Control es un proceso que define dependencias  -->
+<!-- 	de un objeto sin tener que crearlos.  -->
+<!-- 	Mientras se crean los objetos, Spring inyecta los Beans entre ellos  -->
+<!-- 	con el fin de obtener/controlar todas sus dependencias.  -->
+<!-- Ver esquema https://desarrolloweb.com/articulos/images/poo/figura2-id.jpg -->
+
+<!-- 	Utilización de un BEAN -->
+<!-- 	la configuración de un Bean se puede realizar de dos formas distintas: -->
+<!-- 	XML o Anotación -->
+<!-- Ahora estamos viendo la configuración vía XML -->
+
+	<bean id="pascal"
+		class="com.nombrealumno.poo.poo_herencia.Trabajador">
+		<property name="nombre" value="Pascal"></property>
+		<property name="sueldo" value="2000"></property>
+		<property name="puesto" value="Gerente"></property>
+	</bean>
+	<bean id="eric"
+		class="com.nombrealumno.poo.poo_herencia.Estudiante">
+		<property name="nombre" value="Eric"></property>
+		<property name="beca" value="650"></property>
+		<property name="curso" value="Grado superior en informática"></property>
+	</bean>
+	
+	<bean id="tienda_madrid"
+		class="com.nombrealumno.poo.poo_interfaces.TiendaMadrid"></bean>
+	<bean id="tienda_bilbao"
+		class="com.nombrealumno.poo.poo_interfaces.TiendaBilbao"></bean>
+	<bean id="michel"
+		class="com.nombrealumno.poo.poo_interfaces.Vendedor">
+		<property name="nombre" value="Michel"></property>
+		<property name="sueldo" value="2000"></property>
+		
+		<property name="tienda" ref="tienda_madrid"></property>
+	</bean>
+	<bean id="annie"
+		class="com.nombrealumno.poo.poo_interfaces.Vendedor">
+		<constructor-arg ref="tienda_bilbao"></constructor-arg>
+	</bean>
+</beans>
+
+
+
+
+
