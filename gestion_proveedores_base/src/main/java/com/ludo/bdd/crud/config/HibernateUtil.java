@@ -9,11 +9,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.ludo.bdd.crud.model.Book;
-import com.ludo.bdd.crud.model.Category;
-import com.ludo.bdd.crud.model.Product;
-import com.ludo.bdd.crud.model.Provider;
-import com.ludo.bdd.crud.model.ProviderDetail;
+//import com.ludo.bdd.crud.model.Category;
+//import com.ludo.bdd.crud.model.Product;
+//import com.ludo.bdd.crud.model.Provider;
+//import com.ludo.bdd.crud.model.ProviderDetail;
 
 import static org.hibernate.cfg.Environment.*;
 
@@ -42,7 +41,7 @@ public class HibernateUtil {
 				Map<String, String> settings = new HashMap<>();
 				settings.put(DRIVER, "com.mysql.cj.jdbc.Driver");
 				settings.put(URL,
-						"jdbc:mysql://localhost:3306/gestion_proveedores?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+						"jdbc:mysql://localhost:3306/XXXXXXXXXXXXXXXXX?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 				settings.put(USER, "root");
 				settings.put(PASS, "");
 				settings.put(SHOW_SQL, "true");
@@ -50,20 +49,20 @@ public class HibernateUtil {
 
 				registry = registryBuilder.applySettings(settings).build();
 
-				MetadataSources sources = new MetadataSources(registry)
-						.addAnnotatedClass(Provider.class)
-						.addAnnotatedClass(ProviderDetail.class)
-						.addAnnotatedClass(Product.class)
-						.addAnnotatedClass(Category.class);
+				//MetadataSources sources = new MetadataSources(registry)
+//						.addAnnotatedClass(Provider.class)
+//						.addAnnotatedClass(ProviderDetail.class)
+//						.addAnnotatedClass(Product.class)
+//						.addAnnotatedClass(Category.class);
 
 				/*
 				 * Punto de entrada para trabajar con fuentes de metadatos Damos una fuente a la
 				 * clase Hibernateabout y luego llamamos al método getMetadataBuilder() para
 				 * customizar las fuentes procesadas.
 				 */
-				Metadata metadata = sources.getMetadataBuilder().build();
+			//	Metadata metadata = sources.getMetadataBuilder().build();
 
-				sessionFactory = metadata.getSessionFactoryBuilder().build();
+			//	sessionFactory = metadata.getSessionFactoryBuilder().build();
 			} catch (Exception e) {
 				System.out.println("Ha habido un problema durante la creación de la SessionFactory");
 				if (registry != null) {

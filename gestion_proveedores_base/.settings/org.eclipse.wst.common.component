@@ -3,7 +3,7 @@
     
     
     
-    <wb-module deploy-name="gestion_proveedores">
+    <wb-module deploy-name="BBDD_Incompleta">
                                         
         
         
@@ -27,7 +27,7 @@
         
         
         <property name="java-output-path" value="/springcrudcompleto/target/classes"/>
-        <property name="context-root" value="gestion_proveedores"/>
+        <property name="context-root" value="BBDD_Incompleta"/>
                                     
     
     
