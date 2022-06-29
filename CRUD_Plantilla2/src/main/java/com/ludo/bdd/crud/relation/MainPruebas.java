@@ -24,7 +24,7 @@ public class MainPruebas {
 			transaction.begin();
 
 			//GUARDAMOS LOS DATOS EN LA BASE
-			//OneToOne.executeRelation1To1(session);
+			OneToOne.executeRelation1To1(session);
 			//OneToMany.executeRelation1ToMany(session);
 			//ManyToMany.executeRelationManyToMany(session);
 			//Remove

@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.ludo.bdd.crud.controller")
+@ComponentScan("com.ludo.bbd.controller")
 public class WebConfig implements WebMvcConfigurer {
 
 	/*

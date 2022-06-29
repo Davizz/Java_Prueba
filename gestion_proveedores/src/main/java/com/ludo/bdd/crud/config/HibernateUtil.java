@@ -42,7 +42,7 @@ public class HibernateUtil {
 				Map<String, String> settings = new HashMap<>();
 				settings.put(DRIVER, "com.mysql.cj.jdbc.Driver");
 				settings.put(URL,
-						"jdbc:mysql://localhost:3306/gestion_proveedores?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+						"jdbc:mysql://localhost:3306/gestion_proveedor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 				settings.put(USER, "root");
 				settings.put(PASS, "");
 				settings.put(SHOW_SQL, "true");

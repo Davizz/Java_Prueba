@@ -47,10 +47,10 @@ public class BookDaoImpl implements BookDao {
 		//query.setParameter("year", 1880);
 		// y inferior a usando Book book que es lo mismo que as book
 		
-//		sentencia = "from Book book where book.bookDetails.publication_year < :year";
-//		System.out.println(sentencia);	
-//		query = sessionFactory.getCurrentSession().createQuery(sentencia);
-//		query.setParameter("year", 1880);
+		sentencia = "from Book book where book.bookDetails.publication_year < :year";
+		System.out.println(sentencia);	
+	query = sessionFactory.getCurrentSession().createQuery(sentencia);
+	query.setParameter("year", 1880);
 	
 		// Que empieza por: Les
 		

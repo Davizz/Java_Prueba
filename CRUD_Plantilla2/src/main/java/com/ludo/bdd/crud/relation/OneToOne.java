@@ -8,13 +8,13 @@ import com.ludo.bdd.crud.model.BookDetails;
 public class OneToOne {
 	public static void executeRelation1To1(Session session) {
 		Book book = new Book();
-		book.setTitle("Le tour du monde en 80 jours");
-		book.setAuthor("Jules Vernes");
+		book.setTitle("Don Quijote");
+		book.setAuthor("Cervantes");
 
 		BookDetails bookDetails = new BookDetails();
-		bookDetails.setPage_number(290);
-		bookDetails.setPublication_year(1864);
-		bookDetails.setPurchase_year(1990);
+		bookDetails.setPage_number(750);
+		bookDetails.setPublication_year(1912);
+		bookDetails.setPurchase_year(1980);
 
 		bookDetails.setBook(book);
 

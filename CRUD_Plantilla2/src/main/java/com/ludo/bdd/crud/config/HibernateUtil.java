@@ -41,7 +41,7 @@ public class HibernateUtil {
 				Map<String, String> settings = new HashMap<>();
 				settings.put(DRIVER, "com.mysql.cj.jdbc.Driver");
 				settings.put(URL,
-						"jdbc:mysql://localhost:3306/springbdd?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+						"jdbc:mysql://localhost:3306/springbbd?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 				settings.put(USER, "root");
 				settings.put(PASS, "");
 				settings.put(SHOW_SQL, "true");
