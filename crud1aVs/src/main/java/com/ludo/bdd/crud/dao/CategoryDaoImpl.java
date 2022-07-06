@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import com.ludo.bdd.crud.model.Book;
 import com.ludo.bdd.crud.model.Category;
 
+//Operaciones en BBDD
+
 @Repository
 public class CategoryDaoImpl implements CategoryDao {
 
@@ -26,6 +28,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	@Override
 	public Category get(long id) {
 		Session session = sessionFactory.getCurrentSession();
+		
 		Category category = session.get(Category.class, id);	
 		return category;
 	}
@@ -35,10 +38,12 @@ public class CategoryDaoImpl implements CategoryDao {
 	public void delete(long id) {
 		// Esto borra el Category y la relación que existe con el Book
 		Category savedCategoryEntity = sessionFactory.getCurrentSession().find(Category.class, id);
-		sessionFactory.getCurrentSession().remove(savedCategoryEntity);
+		//sessionFactory.getCurrentSession().remove(savedCategoryEntity);
+		sessionFactory.getCurrentSession().delete(savedCategoryEntity);
 
 	}
-
+	
+	//Devuelve el número de categorías que existen en la BBD
 	@Override
 	public long num() {
 		//Category no category
@@ -47,6 +52,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		return count;
 	}
 
+	//Saca un listado de categorías
 	@Override
 	public List<?> list() {
 		String sentencia = "from Category c ORDER BY c.category_name";
@@ -55,3 +61,4 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 }
+	

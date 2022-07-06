@@ -49,6 +49,7 @@ public class BookDaoImpl implements BookDao {
 	@Override
 	public List<?> list() {
 		String sentencia = "from Book b ORDER BY b.title";
+		//String sentencia = "From Book b Where b.cantidad  > 0 ORDER BY b.title";
 		TypedQuery<?> query = sessionFactory.getCurrentSession().createQuery(sentencia);
 		return query.getResultList();
 	}

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.ludo.bdd.crud.model.Book;
 import com.ludo.bdd.crud.service.BookService;
 import com.ludo.bdd.crud.service.CategoryService;

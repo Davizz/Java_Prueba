@@ -16,6 +16,7 @@ import com.ludo.bdd.crud.model.User;
 @Service
 public class ServicesImpl implements UserService, BookService, CategoryService {
 
+	//Conexión con userDao
 	@Autowired
 	private UserDao userDao;
 	@Autowired
@@ -24,6 +25,7 @@ public class ServicesImpl implements UserService, BookService, CategoryService {
 	@Autowired
 	private CategoryDao categoryDao;
 
+	//Creación de un objeto usuario en el Dao 
 	@Override
 	@Transactional
 	public void save(User user) {		

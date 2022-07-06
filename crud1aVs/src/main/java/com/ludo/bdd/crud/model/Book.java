@@ -33,6 +33,10 @@ public class Book {
 	@NotBlank(message = "{book.author.required}")
 	private String author;	
 	
+	//@Column(name = "cantidad")
+	//private long cantidad;	
+	
+	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
 	private BookDetails bookDetails; 	
 	
