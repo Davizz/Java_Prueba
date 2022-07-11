@@ -27,11 +27,12 @@ public class ServicesImpl implements UserService, BookService, CategoryService {
 	@Transactional
 	public void save(User user) {		
 		User copiaUser = new User(); 
-		copiaUser.setEmail(user.getEmail().toLowerCase());
 		copiaUser.setName(user.getName().toUpperCase());
+		copiaUser.setEmail(user.getEmail());
 		copiaUser.setId(user.getId());
 		userDao.save(copiaUser);
 	}
+	
 	
 	@Override
 	@Transactional
@@ -125,9 +126,7 @@ public class ServicesImpl implements UserService, BookService, CategoryService {
 	@Override
 	@Transactional
 	public void loanBooks(User user) {
-		
-	
-		userDao.loanBooks(user);
+				userDao.loanBooks(user);
 		
 	}
 

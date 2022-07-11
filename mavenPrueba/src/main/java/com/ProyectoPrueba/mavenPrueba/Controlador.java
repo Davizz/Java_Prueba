@@ -1,4 +1,4 @@
-package com.ProyectoPrueba.mavenPrueba;
+/*package com.ProyectoPrueba.mavenPrueba;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,4 +10,4 @@ public class Controlador {
 	public String index( ) {
 		return "index";
 	}
-}
+}*/

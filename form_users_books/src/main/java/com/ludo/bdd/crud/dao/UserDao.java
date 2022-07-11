@@ -17,5 +17,4 @@ public interface UserDao {
 	
 	void loanBooks(User user);
 	
-	
-}
+	}

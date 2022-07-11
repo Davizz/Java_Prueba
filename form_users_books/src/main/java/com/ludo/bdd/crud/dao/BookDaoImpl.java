@@ -28,7 +28,7 @@ public class BookDaoImpl implements BookDao {
 				.createQuery("from Category c where c.category_name = :categoria_enviada")
 				.setParameter("categoria_enviada", book.getCategory().getCategory_name()).uniqueResult();
 		if (category != null) {
-			System.out.println("category name cargada:" + book.getCategory().getCategory_name() + ". Fecha" + new Date());
+			System.out.println("category name cargada:" + book.getCategory().getCategory_name() + ". Fecha" +  new Date());
 			book.setCategory(category);
 			category.getBooks().add(book);
 			if(book.getId() > 0) {

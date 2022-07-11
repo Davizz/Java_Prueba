@@ -30,13 +30,13 @@ public class CategoryDaoImpl implements CategoryDao {
 			sessionFactory.getCurrentSession().save(category);
 		}
 		
-	
 
 	}
 
 	@Override
 	public List<?> list() {
 		String sentencia = "from Category c ORDER BY c.category_name ";
+		//String sentencia = "SELECT category FROM form_users_books ORDER BY category_name";
 		System.out.println(sentencia);	
 		TypedQuery<?> query = sessionFactory.getCurrentSession().createQuery(sentencia);
 		query = sessionFactory.getCurrentSession().createQuery(sentencia);

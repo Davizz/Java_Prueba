@@ -28,6 +28,7 @@ public class CategoryController {
 
 		model.addAttribute("category", new Category());		
 		addAttributes(model, "Formulario Categorías", "Formulario para añadir/modificar las categorías");
+		//addAttributes(model, "Manzana", "Pera");
 		return "categoryList";
 	}
 	
@@ -36,6 +37,7 @@ public class CategoryController {
 		Category category = categoryService.getCategory(id); 			
 		model.addAttribute(category);
 		addAttributes(model, "Formulario Categorías", "Formulario para añadir/modificar las categorías");
+		//addAttributes(model, "Manzana", "Pera");
 		return "categoryList";
 	}
 	

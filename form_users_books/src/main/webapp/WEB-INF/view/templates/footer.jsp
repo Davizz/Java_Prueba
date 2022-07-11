@@ -4,9 +4,10 @@
 			<div class="row">
 				<div class="col-12">
 					<p class="text-center">
+					<!-- param.web hace referencia a <jsp:param name="web" value="campus2b.com" /> que está en el index.jsp -->
 						© 2022 <a href="https://www.${param.web}"
-							title="Curso de JAVA 2022. Beans, anotaciones y POO">${param.web}</a>. <span>Todos
-							derechos reservados.</span><br>
+							title="Curso de JAVA 2022. Beans, anotaciones y POO">${param.web}</a>. 
+							<span>Todos los derechos reservados.</span><br>
 					</p>
 				</div>
 			</div>
