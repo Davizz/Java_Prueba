@@ -6,11 +6,11 @@ public class UsoEmpleados {
 
 	public static void main(String[] args) {
 		
-	/*	// Creación objetos sin interfaz
+	// Creaciï¿½n objetos sin interfaz
 
 		Jefe Empleado1 = new Jefe();
 		
-		// Creación objetos con interfaz
+		// Creaciï¿½n objetos con interfaz
 		
 		Empleados Empleado2 = new Jefe();
 		
@@ -26,11 +26,14 @@ public class UsoEmpleados {
 		System.out.println(Empleado1.getTareas());
 		System.out.println(Empleado2.getTareas());
 		System.out.println(Empleado3.getTareas());
-		System.out.println(Empleado4.getTareas());*/
+		System.out.println(Empleado4.getTareas());
 		
-		//Método 2
+	
+		
+		
+		//Mï¿½todo 2
 		//Cargo el archivo XML
-		ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ClassPathXmlApplicationContext contexto = new ClassPathXmlApplicationContext("pom.xml");
 		
 		//Pido el bean
 		Empleados Juan = contexto.getBean("miEmpleado", Empleados.class);

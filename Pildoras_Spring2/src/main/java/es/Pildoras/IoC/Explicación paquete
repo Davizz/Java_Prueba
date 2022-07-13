@@ -1,0 +1,19 @@
+Este paquete no arranca porque tiene que ser insertado en el siguiente proyecto:
+File - Java Project
+Crear una carpeta de nombre libs e insertar las librerias .jar de maven
+Crear a la altura de los paquetes una carpeta de nombre applicationContext.xml que contenga lo siguiente:
+
+<?xml version="1.0" enconding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.springframework.org/schema/context"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/beans/spring-context-3.1.xsd">
+
+<context:component-scan base-package="com.David.crud.Anotaciones"></context:component-scan>
+
+
+</beans>
