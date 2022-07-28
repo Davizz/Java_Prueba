@@ -8,14 +8,13 @@ public interface UserService {
 	void save(User user);
 
 	List<User> listUsers();
-	
-	void deleteUser(long id);
-	
-	User getUser(long id);	
-	
+
+	void deleteUser(String username);
+
+	User getUser(String username);
+
 	long numUsers();
 
 	void loanBooks(User user);
 
-	
 }

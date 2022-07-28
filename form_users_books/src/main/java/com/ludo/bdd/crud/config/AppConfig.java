@@ -1,5 +1,17 @@
 package com.ludo.bdd.crud.config;
 
+import static org.hibernate.cfg.AvailableSettings.C3P0_ACQUIRE_INCREMENT;
+import static org.hibernate.cfg.AvailableSettings.C3P0_MAX_SIZE;
+import static org.hibernate.cfg.AvailableSettings.C3P0_MAX_STATEMENTS;
+import static org.hibernate.cfg.AvailableSettings.C3P0_MIN_SIZE;
+import static org.hibernate.cfg.AvailableSettings.C3P0_TIMEOUT;
+import static org.hibernate.cfg.AvailableSettings.DRIVER;
+import static org.hibernate.cfg.AvailableSettings.HBM2DDL_AUTO;
+import static org.hibernate.cfg.AvailableSettings.PASS;
+import static org.hibernate.cfg.AvailableSettings.SHOW_SQL;
+import static org.hibernate.cfg.AvailableSettings.URL;
+import static org.hibernate.cfg.AvailableSettings.USER;
+
 import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +20,21 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.ludo.bdd.crud.model.Book;
 import com.ludo.bdd.crud.model.BookDetails;
 import com.ludo.bdd.crud.model.Category;
+import com.ludo.bdd.crud.model.Role;
 import com.ludo.bdd.crud.model.User;
-
-import org.springframework.orm.hibernate5.HibernateTransactionManager;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import org.springframework.core.env.Environment;
-import static org.hibernate.cfg.Environment.*;
 
 @Configuration
 @PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScans(value = { @ComponentScan("com.ludo.bdd.crud.dao"), 
-		@ComponentScan("com.ludo.bdd.crud.service") })
+@ComponentScans(value = { @ComponentScan("com.ludo.bdd.crud.dao"), @ComponentScan("com.ludo.bdd.crud.service") })
 public class AppConfig {
 
 	@Autowired
@@ -53,9 +63,9 @@ public class AppConfig {
 		props.put(C3P0_MAX_STATEMENTS, env.getProperty("hibernate.c3p0.max_statements"));
 
 		factoryBean.setHibernateProperties(props);
-		factoryBean.setAnnotatedClasses(new Class[] {Book.class, BookDetails.class, Category.class, User.class, });
-		//factoryBean.set
-		//factoryBean.setAnnotatedClasses(Book.class);
+		factoryBean.setAnnotatedClasses(
+				new Class[] { Book.class, BookDetails.class, Category.class, User.class, Role.class });
+
 		return factoryBean;
 	}
 

@@ -24,7 +24,7 @@
 								<form:input id="title" path="title" cssClass="form-control" onmouseover="pinta('title')" onmouseout="vuelve('title')"/>
 								<form:errors path="title" cssClass="error" />
 								<form:hidden path="id" />
-								<form:hidden path="bookDetails.id" />
+								<form:hidden path="productDetails.id" />
 							</div>
 							<div class="mb-3">
 								<form:label path="author" cssClass="form-label">Autor<span
@@ -65,7 +65,7 @@
 <%-- 									<form:option value="" label="Seleccionar categoría" /> --%>
 <%-- 									<c:forEach var="cat" items="${categories}">										 --%>
 <%-- 											<option value="${cat.category_name}" --%>
-<%-- 												label="${cat.category_name}" ${cat.category_name == book.category.category_name ? 'selected="selected"' : ''} /> --%>
+<%-- 												label="${cat.category_name}" ${cat.category_name == product.category.category_name ? 'selected="selected"' : ''} /> --%>
 <%-- 									</c:forEach> --%>
 <%-- 								</form:select> --%>
 								<form:errors path="category" cssClass="error" />
@@ -90,7 +90,7 @@
 
 							</tr>
 							<c:if test="${how_many > 0}">
-								<c:forEach items="${books}" var="book">
+								<c:forEach items="${products}" var="book">
 									<c:url var="delete" value="delete">
 										<c:param name="id" value="${product.id}" />
 									</c:url>

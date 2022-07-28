@@ -26,19 +26,19 @@ public class BookDetails {
 	private long id;
 
 	@Column(name = "publication_year")
-	@Digits(integer=4, fraction=0)
+	@Digits(integer = 4, fraction = 0, message = "{book.digits.invalid}")
 	@Min(value = 1500, message = "{book.publication_year_min.invalid}")
 	@Max(value = 2022, message = "{book.publication_year_max.invalid}")
 	private String publication_year;
 
 	@Column(name = "purchase_year")
-	@Digits(integer=4, fraction=0)
+	@Digits(integer = 4, fraction = 0, message = "{book.digits.invalid}")
 	@Min(value = 1975, message = "{book.purchase_year_min.invalid}")
 	@Max(value = 2022, message = "{book.purchase_year_max.invalid}")
 	private String purchase_year;
 
 	@Column(name = "page_number")
-	@Digits(integer=4, fraction=0)
+	@Digits(integer = 4, fraction = 0, message = "{book.digits.invalid}")
 	@Min(value = 20, message = "{book.page_number_min.invalid}")
 	@Max(value = 2000, message = "{book.page_number_max.invalid}")
 	private String page_number;
@@ -101,8 +101,8 @@ public class BookDetails {
 
 	@Override
 	public String toString() {
-		return "Publicado en " + getPublication_year()
-				+ "\nComprado en " + getPurchase_year() + ".\n" + getPage_number() + " páginas";
+		return "Publicado en " + getPublication_year() + "\nComprado en " + getPurchase_year() + ".\n"
+				+ getPage_number() + " páginas";
 	}
 
 }

@@ -1,9 +1,10 @@
 package com.ludo.bdd.crud.controller;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
-import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ludo.bdd.crud.model.Book;
+import com.ludo.bdd.crud.model.Role;
 import com.ludo.bdd.crud.model.User;
 import com.ludo.bdd.crud.service.BookService;
+import com.ludo.bdd.crud.service.RoleService;
 import com.ludo.bdd.crud.service.UserService;
 
 @Controller
@@ -33,6 +35,9 @@ public class UserController {
 	@Autowired
 	@Qualifier("servicesImpl")
 	private BookService bookService;
+	@Autowired
+	@Qualifier("servicesImpl")
+	private RoleService roleService;
 
 	@GetMapping("/list")
 	public String userForm(Locale locale, Model model) {
@@ -43,8 +48,8 @@ public class UserController {
 	}
 
 	@GetMapping("/edit")
-	public String editUser(@RequestParam("id") long id, Model model) {
-		User user = userService.getUser(id);
+	public String editUser(@RequestParam("username") String username, Model model) {
+		User user = userService.getUser(username);
 		model.addAttribute(user);
 		addAttributes(model, "Formulario Usuarios", "Formulario para añadir/modificar los usuarios");
 		return "userForm";
@@ -67,50 +72,21 @@ public class UserController {
 			addAttributes(model, "Formulario Usuarios", "Formulario para añadir/modificar los usuarios");
 			return "userForm";
 		}
-		try {
-			userService.save(user);
-		} catch (Exception e) {
-//		    if(e.getCause() != null && e.getCause().getCause() instanceof SQLIntegrityConstraintViolationException) {
-			if (e.getCause() != null && e.getCause().getCause() instanceof ConstraintViolationException) {
-//		        SQLIntegrityConstraintViolationException sql_violation_exception = (SQLIntegrityConstraintViolationException) e.getCause().getCause() ;
-				ConstraintViolationException violation_exception = (ConstraintViolationException) e.getCause()
-						.getCause();
-				// System.out.println("Hola");
-				// log.error("SQLIntegrityConstraintViolationException has accured. " +
-				// sql_violation_exception.getMessage());
-				e.printStackTrace();
-				existe = false;
-			} else {
-				// log.error(e.getMessage());
-				// System.out.println("Hola");
-//		    	e.printStackTrace();
-				existe = true;
-			}
-			model.addAttribute(user);
-			addAttributes(model, "Formulario Usuarios", "Formulario para añadir/modificar los usuarios");
-
-			model.addAttribute("existe", existe);
-			return "userForm";
-		}
+		userService.save(user);
 		model.addAttribute("existe", existe);
 		return "redirect:/user/list";
 	}
 
 	@GetMapping("/delete")
-	public String deleteUser(@RequestParam("id") long id) {
-		userService.deleteUser(id);
+	public String deleteUser(@RequestParam("username") String username) {
+		userService.deleteUser(username);
 		return "redirect:/user/list";
 	}
 
 	@GetMapping("/loan_books")
-	public String loanBooksUser(@RequestParam("id") long id, Model model) {
-		User user = userService.getUser(id);
+	public String loanBooksUser(@RequestParam("username") String username, Model model) {
+		User user = userService.getUser(username);
 		model.addAttribute(user);
-		long miArray[] = new long[user.getBooks().size()]; 
-		for(int i = 0; i < user.getBooks().size(); i++) {
-			miArray[i] = user.getBooks().get(i).getId(); 
-		}
-		model.addAttribute("miArray", miArray);
 		model.addAttribute("booklist", bookService.listBooks());
 		model.addAttribute("titulo", "Listado de libros prestados a " + user.getName());
 		model.addAttribute("descripcion", "Formulario para añadir/modificar libros prestados por " + user.getName());
@@ -121,19 +97,49 @@ public class UserController {
 	public String confirmLoan(@ModelAttribute("user") @Valid User user, BindingResult result, Model model) {
 		Boolean existe = false;
 		if (result.hasErrors()) {
-			System.out.println("Pasando por la sección errores");
+			// System.out.println("Pasando por la sección errores");
 			model.addAttribute(user);
 			addAttributes(model, "Formulario Usuarios", "Formulario para añadir/modificar los usuarios");
 			return "userForm";
 		}
-	
-		
-		userService.loanBooks(user);
 
+		userService.loanBooks(user);
 		model.addAttribute(user);
 		addAttributes(model, "Formulario Usuarios", "Formulario para añadir/modificar los usuarios");
-
 		model.addAttribute("existe", existe);
+		return "redirect:/user/list";
+	}
+
+	@GetMapping("/ver")
+	public String ver(@RequestParam("username") String username, Model model) {
+		User user = userService.getUser(username);
+		model.addAttribute(user);
+		model.addAttribute("titulo", "Ver Detalle Usuario " + user.getName());
+		model.addAttribute("descripcion", "Tabla que muestra los detalles de usuario " + user.getName());
+		return "ver";
+	}
+
+	@GetMapping("/role")
+	public String userRole(@RequestParam("username") String username, Model model) {
+		User user = userService.getUser(username);
+		ArrayList<String> roles = new ArrayList<>(Arrays.asList("ROLE_OWNER", "ROLE_USER", "ROLE_ADMIN"));
+		model.addAttribute("roles", roles);
+		model.addAttribute("role", new Role());
+		model.addAttribute(user);
+		model.addAttribute("users", userService.listUsers());
+		model.addAttribute("titulo", "Gestionar los permisos de " + user.getName());
+		model.addAttribute("descripcion", "Formulario para gestionar los permisos " + user.getName());
+		return "userRole";
+	}
+
+	@PostMapping("/add_role")
+	public String addRole(@ModelAttribute("role") @Valid Role role, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+
+			return "redirect:/user/role";
+		}
+		roleService.save(role);
 		return "redirect:/user/list";
 	}
 

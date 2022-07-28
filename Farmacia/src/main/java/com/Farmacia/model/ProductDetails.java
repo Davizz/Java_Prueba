@@ -16,7 +16,7 @@ import javax.validation.constraints.Min;
 import org.springframework.validation.annotation.Validated;
 
 @Entity
-@Table(name = "book_details")
+@Table(name = "product_details")
 @Validated
 public class ProductDetails {
 

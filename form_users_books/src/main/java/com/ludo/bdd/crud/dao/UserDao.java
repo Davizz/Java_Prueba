@@ -8,13 +8,13 @@ public interface UserDao {
 	void save(User user);
 
 	List<User> list();
-	
-	void delete(long id);
-	
-	User get(long id);
-	
+
+	void delete(String username);
+
+	User get(String username);
+
 	long num();
-	
+
 	void loanBooks(User user);
-	
-	}
+
+}

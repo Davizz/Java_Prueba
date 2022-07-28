@@ -1,22 +1,20 @@
 package com.ludo.bdd.crud.dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-/*he cambiado la clase importada*/
-import org.hibernate.query.Query;
 import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+/*he cambiado la clase importada*/
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ludo.bdd.crud.other.Fecha;
 import com.ludo.bdd.crud.model.Book;
-import com.ludo.bdd.crud.model.Category;
 import com.ludo.bdd.crud.model.User;
+import com.ludo.bdd.crud.other.Fecha;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -26,14 +24,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void save(User user) {
-		if (user.getId() > 0) {
-			user.setUpdatedAt(Fecha.getTimeStamp("Europe/Madrid"));
-			sessionFactory.getCurrentSession().saveOrUpdate(user);
-		} else {
-			user.setUpdatedAt(Fecha.getTimeStamp("Europe/Madrid"));
-			user.setCreatedAt(Fecha.getTimeStamp("Europe/Madrid"));
-			sessionFactory.getCurrentSession().save(user);
-		}
+
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Override
@@ -44,16 +36,17 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void delete(long id) {
-		Query<?> query = sessionFactory.getCurrentSession().createQuery("delete from User where id =:id");
-		query.setParameter("id", id);
+	public void delete(String username) {
+		Query<?> query = sessionFactory.getCurrentSession().createQuery("delete from User where username =:username");
+		query.setParameter("username", username);
 		query.executeUpdate();
 	}
 
 	@Override
-	public User get(long id) {
+	public User get(String username) {
+		User user = null;
 		Session session = sessionFactory.getCurrentSession();
-		User user = session.get(User.class, id);
+		user = session.get(User.class, username);
 		return user;
 	}
 
@@ -87,7 +80,7 @@ public class UserDaoImpl implements UserDao {
 		}
 		// Grabamos
 		user.setUpdatedAt(Fecha.getTimeStamp("Europe/Madrid"));
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
+		sessionFactory.getCurrentSession().merge(user);
 		// Sincronizamos la BDD
 		sessionFactory.getCurrentSession().flush();
 

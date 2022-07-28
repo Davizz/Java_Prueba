@@ -71,7 +71,7 @@ public class Product extends DateColumns{
 		this.category = category;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "books")
+	@ManyToMany(fetch = FetchType.EAGER, mappedBy = "products")
 	private List<User> users = new ArrayList<>();
 
 	public List<User> getUsers() {

@@ -11,8 +11,8 @@ public class MainController {
 	@RequestMapping("/index")
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("titulo", "Campus C2B");
-		mv.addObject("descripcion", "Pruebas de acceso a BDD en C2B. Tecnología Java Spring MVC, Maven y Bootstrap");
+		mv.addObject("titulo", "Gestión Farmacia");
+		mv.addObject("descripcion", "BBDD para gestión farmaceútica");
 		mv.addObject("menu", "index");
 		mv.setViewName("index");
 
@@ -22,8 +22,8 @@ public class MainController {
 	@RequestMapping("/")
 	public ModelAndView prepareView() {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("titulo", "Campus C2B");
-		mv.addObject("descripcion", "Pruebas de acceso a BDD en C2B. Tecnología Java Spring MVC, Maven y Bootstrap");
+		mv.addObject("titulo", "Gestión Farmacia");
+		mv.addObject("descripcion", "BBDD para gestión farmaceútica");
 		mv.addObject("menu", "index");
 		mv.setViewName("index");
 		return mv;

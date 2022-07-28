@@ -39,7 +39,7 @@
 								<%--	<c:out value="${book.title}" />--%>
 								<%--</c:forEach>--%>
 								<form:select path="products" cssClass="form-control" multiple="true" items="${productlist}" itemValue="title" itemLabel="title">
-<%-- 									<form:option value="" label="Seleccionar libro(s)" /> --%>
+<%-- 									<form:option value="" label="Seleccionar producto(s)" /> --%>
 <%-- 									<c:forEach var="productdispo" items="${productlist}">									 --%>
 <%-- 											<option value="${bookdispo.title}" label="${bookdispo.title}"/>										 --%>
 <%-- 									</c:forEach> --%>
