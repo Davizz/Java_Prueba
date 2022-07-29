@@ -106,9 +106,9 @@ public class UserController {
 	public String loanProductsUser(@RequestParam("username") String username, Model model) {
 		User user = userService.getUser(username);
 		model.addAttribute(user);
-		model.addAttribute("booklist", productService.listProducts());
-		model.addAttribute("titulo", "Listado de libros prestados a " + user.getName());
-		model.addAttribute("descripcion", "Formulario para añadir/modificar libros prestados por " + user.getName());
+		model.addAttribute("productlist", productService.listProducts());
+		model.addAttribute("titulo", "Medicamentos prestados a " + user.getName());
+		model.addAttribute("descripcion", "Formulario para añadir/modificar medicamentos prestados por " + user.getName());
 		// NO ES SAFE
 		return "loanProducts";
 	}

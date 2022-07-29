@@ -37,7 +37,7 @@
 								
 							</div>
 							<div class="mb-1">
-								<label for="products" class="form-label">Libros prestados</label>
+								<label for="products" class="form-label">Medicamentos prestados</label>
 								<%--Para conocer los libros prestados al usuario antes de usarlos en el FORM --%>
 								<%--<c:forEach var="book" items="${user.books}">--%>
 								<%--	<c:out value="${book.title}" />--%>

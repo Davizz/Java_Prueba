@@ -11,9 +11,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-8  mx-auto">
-					<h1 class="text-center mb-4">${titulo}</h1>
+					<h2 class="text-center mb-4">${titulo}</h2>
 					<p class="text-start mb-4">${descripcion}</p>
 					<p class="text-start mb-4">${descripcion_larga}</p>
+					<img class = "img-fluid" src="${pageContext.request.contextPath}/assets/img/fachada-farmacia.jpg" >
 				</div>
 			</div>
 		</div>
